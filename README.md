@@ -49,5 +49,5 @@ The project involves creating a multiplayer Tetris game running on Mbed-powered 
 - Victor Gasnikov
 
 ## License
-This project is licensed under the [MIT License](\LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
