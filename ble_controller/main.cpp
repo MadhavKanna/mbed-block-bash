@@ -1,7 +1,6 @@
 #include "bluetooth.hpp"
 
-int main()
-{
-    ble_init();
+int main() {
+    bleInit();
     return 0;
 }

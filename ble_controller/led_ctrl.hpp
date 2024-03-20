@@ -4,11 +4,11 @@
 
 static void blink();
 
-void start_blinking(std::chrono::milliseconds rate);
+void startBlinking(std::chrono::milliseconds rate);
 
-void cancel_blinking();
+void cancelBlinking();
 
 // display player number on leds (0-3)
-void disp_player(int num);
+void dispPlayer(int num);
 
 #endif

@@ -52,4 +52,5 @@ inline void print_error(ble_error_t error, const char* msg)
     printf("\r\n");
 }
 
+
 #endif

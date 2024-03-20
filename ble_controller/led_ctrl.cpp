@@ -8,18 +8,18 @@ static void blink() {
     led1 = !led1;
 }
 
-void start_blinking(std::chrono::milliseconds rate) {
+void startBlinking(std::chrono::milliseconds rate) {
     ticker.attach(blink, rate);
 }
 
-void cancel_blinking() {
+void cancelBlinking() {
     ticker.detach();
     led1 = 1;
 }
 
 // display player number on leds (0-3)
-void disp_player(int num) {
-    cancel_blinking();
+void dispPlayer(int num) {
+    cancelBlinking();
     switch (num) {
     case 0:
         led1 = 0;
@@ -35,5 +35,5 @@ void disp_player(int num) {
         led2 = 1;
     }
 
-    printf("Connected as player %d/n", num + 1);
+    printf("Connected as player %d\n", num + 1);
 }
