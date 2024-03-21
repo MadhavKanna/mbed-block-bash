@@ -8,13 +8,17 @@ void setPlayerNum(uint8_t num) {
 
 void handleConsoleReady() {
     puts("ready");
+    start_tracking_controller();
 }
 
 void handleConsolePaused() {
     puts("pause");
-    BLE &ble = BLE::Instance();
-    // ble.waitForEvent(); /* Save power */
-    sleep(); // https://os.mbed.com/docs/mbed-os/v6.16/feature-i2c-doxy/class_b_l_e.html#a389bf72fbc5339a27ade7c065a507787
+    stop_tracking_controller();
+}
+
+void send_input(TetrisAction action) {
+    uint8_t data = (uint8_t) action;
+    BLE::Instance().gattServer().write(readChar.getValueHandle(), &data, sizeof(uint8_t));
 }
 
 void writeCharCallback(const GattWriteCallbackParams *params) {
@@ -39,6 +43,6 @@ void writeCharCallback(const GattWriteCallbackParams *params) {
                 break; // Skip unknown data type
         }
 
-        // BLE::Instance(BLE::DEFAULT_INSTANCE).gattServer().write(readChar.getValueHandle(), params->data, params->len);
+        BLE::Instance(BLE::DEFAULT_INSTANCE).gattServer().write(readChar.getValueHandle(), params->data, params->len);
     }
 }

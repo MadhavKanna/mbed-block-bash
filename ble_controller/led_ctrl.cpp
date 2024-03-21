@@ -9,12 +9,14 @@ static void blink() {
 }
 
 void startBlinking(std::chrono::milliseconds rate) {
+    led2 = 0;
     ticker.attach(blink, rate);
 }
 
 void cancelBlinking() {
     ticker.detach();
     led1 = 1;
+    led2 = 0;
 }
 
 // display player number on leds (0-3)

@@ -6,7 +6,7 @@
 
 #include "errors.hpp"
 
-#define CONTROLLER_NAME "Block Bash Controller"
+#define CONTROLLER_NAME "BlockBashController"
 
 extern EventQueue queue;
 
