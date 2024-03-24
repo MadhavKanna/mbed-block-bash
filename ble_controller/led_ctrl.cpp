@@ -26,15 +26,22 @@ void dispPlayer(int num) {
     case 0:
         led1 = 0;
         led2 = 0;
+        break;
     case 1:
         led1 = 0;
         led2 = 1;
+        break;
     case 2:
         led1 = 1;
         led2 = 0;
+        break;
     case 3:
         led1 = 1;
         led2 = 1;
+        break;
+    default:
+        puts("Cannot display player number");
+        break;
     }
 
     printf("Connected as player %d\n", num + 1);

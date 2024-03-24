@@ -17,8 +17,8 @@ void handleConsolePaused() {
 }
 
 void send_input(TetrisAction action) {
-    uint8_t data = (uint8_t) action;
-    BLE::Instance().gattServer().write(readChar.getValueHandle(), &data, sizeof(uint8_t));
+    uint8_t *data = (uint8_t *) &action;
+    BLE::Instance().gattServer().write(readChar.getValueHandle(), data, sizeof(data));
 }
 
 void writeCharCallback(const GattWriteCallbackParams *params) {
@@ -43,6 +43,6 @@ void writeCharCallback(const GattWriteCallbackParams *params) {
                 break; // Skip unknown data type
         }
 
-        BLE::Instance(BLE::DEFAULT_INSTANCE).gattServer().write(readChar.getValueHandle(), params->data, params->len);
+        // BLE::Instance(BLE::DEFAULT_INSTANCE).gattServer().write(readChar.getValueHandle(), params->data, params->len);
     }
 }
